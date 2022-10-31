@@ -1,0 +1,3 @@
+[submodule "growl"]
+	path = growl
+	url = git@github.com:Bearwaves/growl.git
