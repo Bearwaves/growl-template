@@ -11,7 +11,10 @@ Error Game::init() {
 }
 
 void Game::render() {
-	getAPI().graphics().clear(0, 0, 0);
+	auto batch = getAPI().graphics().createBatch();
+	batch->clear(0, 0, 0);
+	batch->begin();
+	batch->end();
 }
 
 void Game::resize(const int width, const int height) {}

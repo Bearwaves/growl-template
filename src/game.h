@@ -1,6 +1,5 @@
 #pragma once
 
-#include "growl/core/api/api.h"
 #include "growl/core/game/game.h"
 
 namespace MyTitle {
