@@ -10,8 +10,12 @@ Error Game::init() {
 	return nullptr;
 }
 
-void Game::render() {
-	auto batch = getAPI().graphics().createBatch();
+void Game::tick(double delta_time) {}
+
+void Game::render(double delta_time) {
+	if (!batch) {
+		batch = getAPI().graphics().createBatch();
+	}
 	batch->clear(0, 0, 0);
 	batch->begin();
 	batch->end();
