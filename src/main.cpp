@@ -15,15 +15,8 @@ using Growl::Config;
 
 Config createConfig() {
 	Config config;
-	config.app_name = "MyTitle";
-	config.window_title = "MyTitle";
-	config.window_width = 1920;
-	config.window_height = 1080;
-	config.vsync = true;
-	config.fullscreen = false;
-	config.window_centered = true;
-	config.debug_mode_key = Growl::Key::FunctionF12;
-	config.org_name = "MyOrganization";
+	config.app_name = "GrowlTemplateApp";
+	config.window_title = "Growl Template App";
 	return config;
 }
 
