@@ -7,6 +7,8 @@ namespace MyTitle {
 
 class Game : public Growl::Game {
 public:
+	Game(Growl::Config config)
+		: Growl::Game{config} {}
 	Growl::Error init() override;
 	Growl::Error dispose() override;
 	void tick(double delta_time) override;
