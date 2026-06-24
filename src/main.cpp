@@ -18,7 +18,6 @@ Config createConfig() {
 	config.app_name = "GrowlTemplateApp";
 	config.window_title = "Growl Template App";
 	config.org_name = "MyOrg";
-	config.window_title = config.app_name;
 	config.show_status_bar = false;
 	return config;
 }
