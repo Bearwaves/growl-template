@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <uses-permission android:name="android.permission.INTERNET" />
+
+  <application
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/Application.Fullscreen">
+
+    <meta-data android:name="com.google.android.gms.games.APP_ID"
+               android:value="@string/game_services_project_id"/>
+
+    <activity android:name="MyTitleActivity"
+              android:exported="true"
+              android:configChanges="orientation|screenSize|screenLayout|uiMode">
+      <meta-data android:name="android.app.lib_name"
+                 android:value="mytitle" />
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+
+    <provider
+        android:authorities="com.bearwaves.growl.fileprovider"
+        android:name="com.bearwaves.growl.ShareFileProvider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_paths" />
+    </provider>
+  </application>
+
+</manifest>

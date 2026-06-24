@@ -17,6 +17,9 @@ Config createConfig() {
 	Config config;
 	config.app_name = "GrowlTemplateApp";
 	config.window_title = "Growl Template App";
+	config.org_name = "MyOrg";
+	config.window_title = config.app_name;
+	config.show_status_bar = false;
 	return config;
 }
 
@@ -29,6 +32,7 @@ int main(int argc, char** argv) {
 	auto adapter =
 		Growl::GameAdapter{std::make_unique<MyTitle::Game>(createConfig())};
 	adapter.run();
+	return 0;
 #elif GROWL_IOS
 	NSString* appDelegateClassName;
 	@autoreleasepool {
