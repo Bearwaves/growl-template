@@ -11,7 +11,7 @@
     <meta-data android:name="com.google.android.gms.games.APP_ID"
                android:value="@string/game_services_project_id"/>
 
-    <activity android:name="MyTitleActivity"
+    <activity android:name="GrowlActivity"
               android:exported="true"
               android:configChanges="orientation|screenSize|screenLayout|uiMode">
       <meta-data android:name="android.app.lib_name"
