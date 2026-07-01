@@ -2,3 +2,7 @@ compile_commands.json
 build/
 build.*/
 .cache/
+imgui.ini
+assets_built
+keystore.properties
+.DS_Store
