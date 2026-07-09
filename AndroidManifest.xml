@@ -8,10 +8,7 @@
       android:label="@string/app_name"
       android:theme="@style/Application.Fullscreen">
 
-    <meta-data android:name="com.google.android.gms.games.APP_ID"
-               android:value="@string/game_services_project_id"/>
-
-    <activity android:name="GrowlActivity"
+    <activity android:name="com.bearwaves.growl.GrowlActivity"
               android:exported="true"
               android:configChanges="orientation|screenSize|screenLayout|uiMode">
       <meta-data android:name="android.app.lib_name"
@@ -23,7 +20,7 @@
     </activity>
 
     <provider
-        android:authorities="com.bearwaves.growl.fileprovider"
+        android:authorities="com.bearwaves.mytitle.fileprovider"
         android:name="com.bearwaves.growl.ShareFileProvider"
         android:exported="false"
         android:grantUriPermissions="true">
