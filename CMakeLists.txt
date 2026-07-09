@@ -5,6 +5,13 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 project(mytitle)
 
+set(NAME "My Title")
+set(SHORTNAME "Title")
+set(IDENTIFIER "com.bearwaves.mytitle")
+set(COPYRIGHT "2026 Bearwaves Limited")
+set(VERSION "1.0.0")
+set(BUILD_NUMBER "1")
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -33,6 +40,39 @@ if (GROWL_DESKTOP)
 elseif (GROWL_IOS)
 	target_link_libraries(mytitle PRIVATE growl-platform-ios)
 	target_compile_options(mytitle PRIVATE -x objective-c++)
+	target_sources(mytitle PRIVATE
+		res/ios/Assets.xcassets
+		assets_built/assets.growl
+	)
+	set_source_files_properties(assets_built/assets.growl
+		PROPERTIES MACOSX_PACKAGE_LOCATION Resources
+	)
+	set(RESOURCE_FILES
+		"res/ios/LaunchScreen.storyboard"
+		"res/ios/Assets.xcassets"
+	)
+	set(CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET "15.6")
+	set_target_properties(mytitle
+		PROPERTIES
+		MACOSX_BUNDLE YES
+		XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${IDENTIFIER}"
+		MACOSX_BUNDLE_GUI_IDENTIFIER "${IDENTIFIER}"
+		XCODE_ATTRIBUTE_GENERATE_INFOPLIST_FILE "true"
+		XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2"
+		XCODE_ATTRIBUTE_PRODUCT_NAME "${NAME}"
+		MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/res/ios/Info.plist.in"
+		XCODE_ATTRIBUTE_INFOPLIST_KEY_CFBundleDisplayName "${SHORTNAME}"
+		XCODE_ATTRIBUTE_INFOPLIST_KEY_UIRequiresFullScreen "true"
+		XCODE_ATTRIBUTE_INFOPLIST_KEY_UIStatusBarHidden "true"
+		XCODE_ATTRIBUTE_INFOPLIST_KEY_UILaunchStoryboardName "LaunchScreen.storyboard"
+		XCODE_ATTRIBUTE_ASSETCATALOG_COMPILER_APPICON_NAME "Icon"
+		XCODE_ATTRIBUTE_MARKETING_VERSION "${VERSION}"
+		XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION "${BUILD_NUMBER}"
+		XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
+		XCODE_ATTRIBUTE_SKIP_INSTALL "false"
+		XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "$(inherited)"
+		RESOURCE "${RESOURCE_FILES}"
+	)
 elseif (GROWL_ANDROID)
 	target_link_libraries(mytitle PUBLIC growl-platform-android)
 elseif (GROWL_WEB)
