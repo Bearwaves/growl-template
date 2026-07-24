@@ -10,7 +10,8 @@
 
     <activity android:name="com.bearwaves.growl.GrowlActivity"
               android:exported="true"
-              android:configChanges="orientation|screenSize|screenLayout|uiMode">
+              android:configChanges="orientation|screenSize|screenLayout|uiMode"
+              android:enableOnBackInvokedCallback="false">
       <meta-data android:name="android.app.lib_name"
                  android:value="mytitle" />
       <intent-filter>
