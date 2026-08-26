@@ -1,9 +1,18 @@
 #include "game.h"
 #include "growl/core/api/api.h"
+#include "growl/core/config.h"
 #include "growl/core/error.h"
+#include "growl/core/game/game.h"
+#include "growl/core/graphics/batch.h"
 
+using Growl::Config;
 using Growl::Error;
 using MyTitle::Game;
+
+Game::Game(Config config)
+	: Growl::Game{config} {}
+
+Game::~Game() = default;
 
 Error Game::init() {
 	getAPI().system().log("Game", "Game starting up!");

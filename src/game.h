@@ -1,14 +1,17 @@
 #pragma once
 
 #include "growl/core/game/game.h"
-#include "growl/core/graphics/batch.h"
+
+namespace Growl {
+class Batch;
+}
 
 namespace MyTitle {
 
 class Game : public Growl::Game {
 public:
-	Game(Growl::Config config)
-		: Growl::Game{config} {}
+	Game(Growl::Config config);
+	~Game();
 	Growl::Error init() override;
 	Growl::Error dispose() override;
 	void tick(double delta_time) override;
