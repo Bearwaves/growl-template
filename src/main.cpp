@@ -1,6 +1,7 @@
 #include "growl/core/config.h"
 #ifdef GROWL_DESKTOP
 #include "growl/platforms/desktop/game_adapter.h"
+#include <SDL3/SDL_main.h>
 #elif GROWL_IOS
 #include "growl/platforms/ios/app_delegate.h"
 #include <UIKit/UIKit.h>
